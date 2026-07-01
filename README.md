@@ -101,7 +101,7 @@ BMP280 I2C address: `0x76` (SDO → GND) or `0x77` (SDO → 3.3V). Firmware auto
 
 ---
 
-🚀 Step-by-Step Execution & Deployment Flow
+## 🚀 Step-by-Step Execution & Deployment Flow
 This guide walks you through building the initial firmware, flashing it to the board, and then successfully performing your first wireless OTA update.
 
 Phase 1: The Initial Flash (V1 — LED Only)
@@ -165,7 +165,7 @@ The board automatically reboots. MCUboot swaps the images, and you will now see 
 GitHub Server Cache: Always wait ~2 minutes after running build_ota.bat before resetting your board. If you reset too fast, the board fetches the old manifest.json and misses the update.
 I2C Pin Connections: Ensure your sensors are wired precisely to SCL = P1.02 and SDA = P1.03 with common ground and 3.3V power. The firmware auto-detects BMP280 addresses 0x76 and 0x77 based on your SDO pin.
 Clean Builds: Always delete the build/ folder (or run Remove-Item -Recurse -Force build) if you change Kconfig options (prj.conf), add new .c files, or modify device tree overlays.
-🛠️ Using This Framework for Your Own Applications
+## 🛠️ Using This Framework for Your Own Applications
 This firmware uses a modular architecture. You can easily replace the LED and Sensor logic with your own custom applications without breaking the OTA engine.
 
 Keep the Core Intact: Do not modify ota_http.c, wifi_mgr.c, or main.c unless you are changing underlying networking parameters.
