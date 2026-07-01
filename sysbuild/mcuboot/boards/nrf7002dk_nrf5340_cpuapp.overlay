@@ -1,0 +1,13 @@
+/*
+ * nRF7002 DK board overlay for MCUboot External Flash FOTA.
+ */
+
+/ {
+	chosen {
+		nordic,pm-ext-flash = &mx25r64;
+	};
+};
+
+&mx25r64 {
+	status = "okay";
+};

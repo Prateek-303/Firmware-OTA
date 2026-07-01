@@ -1,1 +1,5 @@
 build*/
+deploy_repo/
+gitpush/SERVER_README.md
+*.pyc
+__pycache__/

@@ -1,0 +1,49 @@
+/*
+ * nRF7002 DK board overlay for External Flash FOTA.
+ */
+
+/ {
+	chosen {
+		nordic,pm-ext-flash = &mx25r64;
+	};
+};
+
+&mx25r64 {
+	status = "okay";
+};
+
+&pinctrl {
+	i2c1_default: i2c1_default {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SCL, 1, 2)>,
+					<NRF_PSEL(TWIM_SDA, 1, 3)>;
+			bias-pull-up;
+		};
+	};
+	i2c1_sleep: i2c1_sleep {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SCL, 1, 2)>,
+					<NRF_PSEL(TWIM_SDA, 1, 3)>;
+			low-power-enable;
+		};
+	};
+};
+
+&i2c1 {
+	status = "okay";
+	pinctrl-0 = <&i2c1_default>;
+	pinctrl-1 = <&i2c1_sleep>;
+	pinctrl-names = "default", "sleep";
+
+	bmp280: bmp280@76 {
+		compatible = "i2c-device";
+		status = "okay";
+		reg = <0x76>;
+	};
+
+	tmp117: tmp117@48 {
+		compatible = "i2c-device";
+		status = "okay";
+		reg = <0x48>;
+	};
+};
