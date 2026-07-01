@@ -109,14 +109,6 @@ BMP280 I2C address: `0x76` (SDO → GND) or `0x77` (SDO → 3.3V). Firmware auto
 # First time — clean build
 Remove-Item -Recurse -Force build
 .\build_ota.bat
-
-# First time push to GitHub
-git push -u origin main
-
-# All future pushes — just double-click:
-gitpush\push_project.bat
-```
-
 `build_ota.bat` compiles the firmware, computes hashes, updates `manifest.json`, and pushes the binary to the server repo automatically.
 
 ---
